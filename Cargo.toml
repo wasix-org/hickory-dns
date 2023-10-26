@@ -50,26 +50,31 @@ futures-executor = { version = "0.3.5", default-features = false }
 futures-io = { version = "0.3.5", default-features = false }
 futures-util = { version = "0.3.5", default-features = false }
 async-std = "1.6"
-tokio = "1.21"
+# tokio = "1.21"
+tokio = { version = "=1.24.2", git = "https://github.com/wasix-org/tokio.git", branch = "epoll", features = [
+    "full",
+] }
 tokio-native-tls = "0.3.0"
 tokio-openssl = "0.6.0"
-tokio-rustls = "0.24.0"
-parking_lot = "0.12"
+# tokio-rustls = "0.24.0"
+# tokio-rustls = "0.24.0"
+tokio-rustls = { git = "https://github.com/wasix-org/tokio-rustls.git", version = "=0.24.1" }
+parking_lot = { version = "0.12", git = "https://github.com/wasix-org/parking_lot.git" }
 
 
 # ssl
 native-tls = "0.2"
 openssl = "0.10.55"
-rustls = "0.21.0"
+rustls = { version = "0.21.5", branch = "v0.21.5", git = "https://github.com/wasix-org/rustls.git" }
 rustls-pemfile = "1.0.0"
-webpki = { version = "0.101.0", package = "rustls-webpki" }
-webpki-roots = "0.25.0"
-ring = "0.16"
+webpki = { git = "https://github.com/wasix-org/webpki.git", branch = "v0.101.0", version = "0.101.0", package = "rustls-webpki" }
+webpki-roots = { git = "https://github.com/wasix-org/webpki-roots.git", version = "0.24.0", branch = "v0.24.0" }
+ring = { version = "0.16.20", git = "https://github.com/wasix-org/ring.git", branch = "wasix" }
 
 
 # net proto
 quinn = { version = "0.10", default-features = false }
-h2 = "0.3.0"
+h2 = { version = "=0.3.20", git = "https://github.com/wasix-org/h2.git" }
 http = "0.2"
 
 
@@ -96,7 +101,8 @@ resolv-conf = "0.7.0"
 rusqlite = "0.29.0"
 serde = "1.0"
 smallvec = "1.6"
-socket2 = "0.5"
+socket2 = { git = "https://github.com/wasix-org/socket2.git", branch = "v0.5" }
+# socket2 = "0.5"
 time = "0.3"
 tinyvec = "1.1.1"
 toml = "0.7"
@@ -104,6 +110,17 @@ url = "2.4.0"
 wasm-bindgen-crate = { version = "0.2.58", package = "wasm-bindgen" }
 
 [patch.crates-io]
+tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll" }
+h2 = { version = "=0.3.20", git = "https://github.com/wasix-org/h2.git" }
+socket2 = { git = "https://github.com/wasix-org/socket2.git", branch = "v0.5" }
+webpki = { git = "https://github.com/wasix-org/webpki.git", branch = "v0.101.0", version = "0.101.0", package = "rustls-webpki" }
+webpki-roots = { git = "https://github.com/wasix-org/webpki-roots.git", version = "0.24.0", branch = "v0.24.0" }
+ring = { version = "0.16.20", git = "https://github.com/wasix-org/ring.git", branch = "wasix" }
+rustls = { version = "0.21.5", branch = "v0.21.5", git = "https://github.com/wasix-org/rustls.git" }
+tokio-rustls = { git = "https://github.com/wasix-org/tokio-rustls.git", version = "=0.24.1" }
+parking_lot = { version = "0.12", git = "https://github.com/wasix-org/parking_lot.git" }
+
+
 # tokio = { path = "../tokio/tokio" }
 # mio = { git = "https://github.com/tokio-rs/mio.git" }
 # h2 = { git = "https://github.com/hyperium/h2.git" }
