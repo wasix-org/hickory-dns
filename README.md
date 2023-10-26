@@ -1,3 +1,9 @@
+### Compilation Instructions
+
+```shell
+$ RUSTFLAGS="--cfg tokio_unstable" cargo wasix build --release
+```
+
 **NOTICE** This project has been rebranded to Hickory DNS and has been moved to the https://github.com/hickory-dns/hickory-dns organization and repo.
 
 [![minimum rustc: 1.67](https://img.shields.io/badge/minimum%20rustc-1.67-green?logo=rust)](https://www.whatrustisit.com)
@@ -21,7 +27,7 @@ This repo consists of multiple crates:
 | **Trust-DNS** | [![](https://img.shields.io/crates/v/trust-dns.svg)](https://crates.io/crates/trust-dns) Binaries for running a DNS authoritative server.                                                                                                                                                                                                  |
 | **Proto**     | [![](https://img.shields.io/crates/v/trust-dns-proto.svg)](https://crates.io/crates/trust-dns-proto) [![trust-dns-proto](https://docs.rs/trust-dns-proto/badge.svg)](https://docs.rs/trust-dns-proto) Raw DNS library, exposes an unstable API and only for use by the other Trust-DNS libraries, not intended for end-user use.           |
 | **Client**    | [![](https://img.shields.io/crates/v/trust-dns-client.svg)](https://crates.io/crates/trust-dns-client) [![trust-dns-client](https://docs.rs/trust-dns-client/badge.svg)](https://docs.rs/trust-dns-client) Used for sending `query`, `update`, and `notify` messages directly to a DNS server.                                             |
-| **Server**    | [![](https://img.shields.io/crates/v/trust-dns-server.svg)](https://crates.io/crates/trust-dns-server) [![trust-dns-server](https://docs.rs/trust-dns-server/badge.svg)](https://docs.rs/trust-dns-server) Use to host DNS records, this also has a `trust-dns` binary for running in a daemon form.                                           |
+| **Server**    | [![](https://img.shields.io/crates/v/trust-dns-server.svg)](https://crates.io/crates/trust-dns-server) [![trust-dns-server](https://docs.rs/trust-dns-server/badge.svg)](https://docs.rs/trust-dns-server) Use to host DNS records, this also has a `trust-dns` binary for running in a daemon form.                                       |
 | **Resolver**  | [![](https://img.shields.io/crates/v/trust-dns-resolver.svg)](https://crates.io/crates/trust-dns-resolver) [![trust-dns-resolver](https://docs.rs/trust-dns-resolver/badge.svg)](https://docs.rs/trust-dns-resolver) Utilizes the client library to perform DNS resolution. Can be used in place of the standard OS resolution facilities. |
 
 # Goals
@@ -51,8 +57,8 @@ The Trust-DNS Client is intended to be used for operating against a DNS server d
 These are standards supported by the DNS protocol. The client implements them
 as high level interfaces, which is a bit more rare.
 
-| Feature                                                                                                         | Description                                           |
-| --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Feature                                                                                                                       | Description                                           |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | [SyncDnssecClient](https://docs.rs/trust-dns-client/latest/trust_dns_client/client/struct.SyncDnssecClient.html)              | DNSSEC validation                                     |
 | [create](https://docs.rs/trust-dns-client/latest/trust_dns_client/client/trait.Client.html#method.create)                     | atomic create of a record, with authenticated request |
 | [append](https://docs.rs/trust-dns-client/latest/trust_dns_client/client/trait.Client.html#method.append)                     | verify existence of a record and append to it         |
